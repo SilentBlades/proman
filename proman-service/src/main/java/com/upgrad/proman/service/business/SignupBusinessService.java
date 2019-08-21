@@ -9,13 +9,12 @@ import com.upgrad.proman.service.dao.UserDAO;
 import com.upgrad.proman.service.entity.UserEntity;
 
 @Service
-public class SignupBusinessService {
-	
+public class SignupBusinessService {	
 	@Autowired
-	private UserDAO userDao;
+	private UserBusinessService userBusinessService;
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public UserEntity signup(UserEntity userEntity) {
-		return userDao.createUser(userEntity);
+		return userBusinessService.createUser(userEntity);
 	}
 }
